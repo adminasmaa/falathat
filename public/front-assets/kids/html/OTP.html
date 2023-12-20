@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> فلذات | حول</title>
+    <link href="../../kids/images/logo(فلذات).PNG" rel="icon">
+    <link rel="stylesheet" href="../../vendor/css/bundle.min.css">
+    <link rel="stylesheet" href="../../vendor/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../vendor/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="../../vendor/css/cubeportfolio.min.css">
+    <link rel="stylesheet" href="../../kids/css/tooltipster.min.css">
+    <link rel="stylesheet" href="../../vendor/css/revolution-settings.min.css">
+    <link rel="stylesheet" href="../../kids/css/revolution/navigation.css">
+    <link href="../../vendor/css/LineIcons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../kids/css/custom.css">
+    <link rel="stylesheet" href="../../kids/css/style.css">
+
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;600&display=swap" rel="stylesheet"> -->
+    <style>
+        .bgWhite{
+  background:white;
+  box-shadow:0px 3px 6px 0px #cacaca;
+}
+
+.title{
+  font-weight:600;
+  margin-top:20px;
+  font-size:24px
+}
+
+.customBtn{
+  border-radius:0px;
+  padding:10px;
+}
+
+form input{
+  display:inline-block !important;
+  width:50px !important;
+  height:50px !important;
+  text-align:center !important;
+}
+    </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="90" >
+<!--PreLoader-->
+<div class="loader">
+    <div class="loader-spinner"></div>
+</div>
+<!--PreLoader Ends-->
+
+
+
+<div class="container-fluid" dir="ltr" style="height: 100vh; background-image:linear-gradient(0deg, #00000080, #00000080), url(../images/wallpaperflare.com_wallpaper\ \(3\).jpg);  background-repeat: no-repeat; background-size: cover;"> 
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col-md-4 text-center">
+          <div class="row">
+            <div class="col-sm-12 mt-5 bgWhite">
+              <div class="title">
+                Verify OTP
+              </div>
+              
+              <form action="" class="mt-5">
+                <input class="otp form-control" type="text" required oninput='digitValidate(this)' onkeyup='tabChange(1)' maxlength=1 >
+                <input class="otp form-control" type="text" required oninput='digitValidate(this)' onkeyup='tabChange(2)' maxlength=1 >
+                <input class="otp form-control" type="text" required oninput='digitValidate(this)' onkeyup='tabChange(3)' maxlength=1 >
+                <input class="otp form-control" type="text" required oninput='digitValidate(this)'onkeyup='tabChange(4)' maxlength=1 >
+              </form>
+              <hr class="mt-4">
+              <button type="submit" class='button gradient-btn my-3'>Verify</button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+<!-- Contact US ends -->
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="../../vendor/js/bundle.min.js"></script>
+<!--to view items on reach-->
+<script src="../../vendor/js/jquery.appear.js"></script>
+<!--Owl Slider-->
+<script src="../../vendor/js/owl.carousel.min.js"></script>
+<!--Parallax Background-->
+<script src="../../vendor/js/parallaxie.min.js"></script>
+<!--Cubefolio Gallery-->
+<script src="../../vendor/js/jquery.cubeportfolio.min.js"></script>
+<!--Fancybox js-->
+<script src="../../vendor/js/jquery.fancybox.min.js"></script>
+<!--wow js-->
+<script src="../../vendor/js/wow.min.js"></script>
+<!--number counters-->
+<script src="../../kids/js/jquery-countTo.js"></script>
+<!--tooltip js-->
+<script src="../../kids/js/tooltipster.min.js"></script>
+<!-- REVOLUTION JS FILES -->
+<script src="../../vendor/js/jquery.themepunch.tools.min.js"></script>
+<script src="../../vendor/js/jquery.themepunch.revolution.min.js"></script>
+<!-- SLIDER REVOLUTION EXTENSIONS -->
+<script src="../../vendor/js/extensions/revolution.extension.actions.min.js"></script>
+<script src="../../vendor/js/extensions/revolution.extension.carousel.min.js"></script>
+<script src="../../vendor/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script src="../../vendor/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="../../vendor/js/extensions/revolution.extension.migration.min.js"></script>
+<script src="../../vendor/js/extensions/revolution.extension.navigation.min.js"></script>
+<script src="../../vendor/js/extensions/revolution.extension.parallax.min.js"></script>
+<script src="../../vendor/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="../../vendor/js/extensions/revolution.extension.video.min.js"></script>
+<!-- font awesome -->
+<script src="https://kit.fontawesome.com/385d561a40.js" crossorigin="anonymous"></script>
+<!--custom functions and script-->
+<script src="../../kids/js/functions.js"></script>
+
+<script>
+    let digitValidate = function(ele){
+  console.log(ele.value);
+  ele.value = ele.value.replace(/[^0-9]/g,'');
+}
+
+let tabChange = function(val){
+    let ele = document.querySelectorAll('input');
+    if(ele[val-1].value != ''){
+      ele[val].focus()
+    }else if(ele[val-1].value == ''){
+      ele[val-2].focus()
+    }   
+ }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> فلذات | المركز الاعلامي </title>
+    <link href="../../kids/images/logo(فلذات).PNG" rel="icon">
+    <link rel="stylesheet" href="../../vendor/css/bundle.min.css">
+    <link rel="stylesheet" href="../../vendor/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../vendor/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="../../vendor/css/cubeportfolio.min.css">
+    <link rel="stylesheet" href="../../kids/css/tooltipster.min.css">
+    <link rel="stylesheet" href="../../vendor/css/revolution-settings.min.css">
+    <link rel="stylesheet" href="../../kids/css/revolution/navigation.css">
+    <link href="../../vendor/css/LineIcons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../kids/css/custom.css">
+    <link rel="stylesheet" href="../../kids/css/style.css">
+
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;600&display=swap" rel="stylesheet"> -->
+
+    <!-- <style>
+       #vidoes_media .card {
+  --blur: 16px;
+  --size: clamp(300px, 50vmin, 600px);
+  /* width: var(--size); */
+  aspect-ratio: 4 / 3;
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  color: #000;
+  transform: translateZ(0);
+}
+
+#vidoes_media .card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(calc(1 + (var(--hover, 0) * 0.25))) rotate(calc(var(--hover, 0) * -5deg));
+  transition: transform 0.2s;
+}
+
+#vidoes_media .card__footer {
+  padding: 0 1.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: red;
+  display: grid;
+  grid-template-row: auto auto;
+  gap: 0.5ch;
+  background: hsl(0 0% 100% / 0.5);
+  backdrop-filter: blur(var(--blur));
+  height: 30%;
+  align-content: center;
+}
+
+#vidoes_media .card__action {
+  position: absolute;
+  aspect-ratio: 1;
+  width: calc(var(--size) * 0.15);
+  bottom: 30%;
+  right: 1.5rem;
+  transform: translateY(50%)
+    translateY(
+      calc(
+        (var(--size) * 0.4)
+      )
+    )
+    translateY(calc(var(--hover, 0) * (var(--size) * -0.4)));
+  background: purple;
+  display: grid;
+  place-items: center;
+  border-radius: 0.5rem;
+  background: hsl(0 0% 100% / 0.5);
+/*   backdrop-filter: blur(calc(var(--blur) * 0.5)); */
+  transition: transform 0.2s;
+}
+
+#vidoes_media .card__action svg {
+  aspect-ratio: 1;
+  width: 50%;
+}
+
+#vidoes_media .card__footer span:nth-of-type(1) {
+  font-size: 18px;
+}
+
+#vidoes_media .card__footer span:nth-of-type(2) {
+  font-size: 15px;
+}
+
+#vidoes_media .card:is(:hover, :focus-visible) {
+  --hover: 1;
+}
+    </style> -->
+   
+    <style>
+        .video-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.video-card {
+  /* width: 30%; */
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.video-thumbnail {
+  position: relative;
+}
+
+.video-thumbnail img {
+  width: 100%;
+  height: auto;
+}
+
+.play-button {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  /* transform: translate(-50%, -50%); */
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+.video-card:hover  .play-button{
+    transform: scale(1.2);
+}
+
+.video-title {
+  margin: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.video-modal-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: rgb(0 0 0 / 37%);
+}
+
+.video-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+    transform: scale(1.2);
+}
+
+.video-player {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+}
+    </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="90" >
+<!--PreLoader-->
+<div class="loader">
+    <div class="loader-spinner"></div>
+</div>
+<!--PreLoader Ends-->
+<!-- header -->
+<header class="site-header" id="header">
+    <nav class="navbar navbar-expand-lg transparent-bg static-nav ">
+        <!-- <div class="color-lines d-block">
+
+    <div class="row no-gutters top-color-bar height-30">
+        <div class="col-4 bg-red"></div>
+        <div class="col-4 bg-orange"></div>
+        <div class="col-4 bg-blue"></div>
+    </div>
+
+        <div class="svg-div-zig-outer">
+            <div class="svg-div-zig"></div>
+        </div>
+
+
+    </div> -->
+        <div class="container navbar-design">
+            <div class="navbar-user">
+                <img class="mx-2" src="../images/CEO.jpg" alt="Profile Logo">
+                <ul class="navbar-nav customNav">
+                    <li class="nav-item dropdown position-relative">
+                        <a class="nav-link dropdown-toggle" href="profile.html" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"> أحمد ياسر </a>
+                        <div class="dropdown-menu text-right p-3">
+                            <a class="dropdown-item" href="profile.html"> <i class="fa fa-user blueColor "
+                                    aria-hidden="true"></i> الملف الشخصي</a>
+                            <a class="dropdown-item" href="login.html"><i class="fas fa-right-from-bracket blueColor"></i>
+                                تسجيل خروج</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <a class="navbar-brand mr-auto mr-lg-0" href="../../index.html">
+                <img src="../images/falazat_ico_white.png" alt="logo" class="logo-default">
+                <img src="../images/logo_فلذات_-removebg-preview.png" alt="logo" class="logo-scrolled">
+            </a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="about.html">حول</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="members.html">الأعضاء</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html#our-apps">الخدمات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="Subscription.html">الاكتتاب</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="branches.html">فروعنا</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news_new.html">المركز الاعلامي</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="committes-types.html">اللجان</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="careers.html">الوظائف</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link " href="questionnare.html">رأيك يهمنا</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link " href="login.html">تسجيل</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!--side menu open button-->
+        <a href="javascript:void(0)" class="d-inline-block sidemenu_btn" id="sidemenu_toggle">
+            <span></span> <span></span> <span></span>
+        </a>
+        <div class="sticky-nav-bottom-holder-svg">
+            <div class="svg-bottom"></div>
+        </div>
+    </nav>
+    <!-- side menu -->
+    <div class="side-menu opacity-0 bg-blue">
+        <div class="overlay"></div>
+        <div class="inner-wrapper">
+            <span class="btn-close" id="btn_sideNavClose"><i></i><i></i></span>
+            <nav class="side-nav w-100" dir="rtl">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link collapsePagesSideMenu collapsed" data-toggle="collapse"
+                            href="#sideNavPages1" aria-expanded="false">
+                            <img class="mx-2 my-2" src="../images/CEO.jpg" alt="Profile Logo"> 
+                             أحمد ياسر 
+                             <i class="fas fa-chevron-down"></i> 
+                            </a>
+                        <div id="sideNavPages1" class="sideNavPages collapse">
+                            <ul class="navbar-nav mt-2">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="profile.html"> <i class="fa fa-user" aria-hidden="true"></i>
+                                        الملف الشخصي</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="login.html"><i class="fas fa-right-from-bracket"></i> تسجيل
+                                        خروج</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="about.html">حول</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="members.html">الأعضاء</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html#our-apps">الخدمات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="Subscription.html">الاكتتاب</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="branches.html">فروعنا</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="careers.html">الوظائف</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news_new.html">المركز الاعلامي</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="committes-types.html">اللجان</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link " href="questionnare.html">رأيك يهمنا</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link " href="login.html">تسجيل</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="side-footer w-100">
+                <ul class="social-icons-simple white top40">
+                    <li><a href="javascript:void(0)" class="facebook"><i class="fab fa-facebook-f"></i> </a> </li>
+                    <li><a href="javascript:void(0)" class="twitter"><i class="fab fa-twitter"></i> </a> </li>
+                    <li><a href="javascript:void(0)" class="insta"><i class="fab fa-instagram"></i> </a> </li>
+                </ul>
+                <p class="whitecolor">&copy; 2023 فلذات. Made With Love by Ahmed Yasser</p>
+            </div>
+        </div>
+    </div>
+    <div id="close_side_menu" class="tooltip"></div>
+    <!-- End side menu -->
+</header>
+<!-- header -->
+
+<!--Page Header-->
+<section id="main-banner-page" class="position-relative page-header service-header section-nav-smooth parallax">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 offset-lg-2">
+                <div class="page-titles whitecolor text-center padding_top_160 padding_bottom">
+                    <h2 class="font-bold" style="color: #C95A3D;">فلذات الطفولة</h2>
+                    <h3 class="font-19 pb-4 pt-2 color-dark1 font-bold">الافضل لطفلك</h3>
+                </div>
+            </div>
+        </div>
+        <div class="bgdefault  title-wrap mt-n5">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 whitecolor">
+                    <h3 class="float-left">المركز الاعلامي </h3>
+                    <ul class="breadcrumb top10 bottom10 float-right">
+                        <li class="breadcrumb-item hover-light text-bold"><a href="../../index.html">الرئيسية</a></li>
+                        <li class="breadcrumb-item hover-light text-bold">المركز الاعلامي </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="vidoes_media" class="padding">
+   <div class="container">
+    <div class="row">
+        <!-- <div class="col-md-4 col-sm-6 col-12">
+            <a href="#" class="card">
+                <img src="https://images.unsplash.com/photo-1526297003708-f5a1c2c9c6e7?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjI0OTY1ODM&ixlib=rb-1.2.1&q=80" alt="balloon with an emoji face" class="card__img">
+                <span class="card__footer">
+                  <span>Awesome speedy card</span>
+                  <span>2 minutes!</span>
+                </span>
+                <span class="card__action">
+                  <svg viewBox="0 0 448 512" title="play">
+                    <path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z" />
+                  </svg>
+                </span>
+              </a>
+        </div> -->
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="video-gallery">
+                <div class="video-card" data-video="https://www.youtube.com/embed/lPX0duH4GTg">
+                  <div class="video-thumbnail">
+                    <img src="../images/sddefault (1).jpg" alt="Video Thumbnail">
+                    <button class="play-button"> <i class="fa fa-play"></i> </button>
+                  </div>
+                  <h3 class="video-title">فيديو رقم #1</h3>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="video-gallery">
+                <div class="video-card" data-video="https://www.youtube.com/embed/NIk1-ck4c6Q">
+                  <div class="video-thumbnail">
+                    <img src="../images/sddefault (3).jpg" alt="Video Thumbnail">
+                    <button class="play-button"><i class="fa fa-play"></i></button>
+                  </div>
+                  <h3 class="video-title">فيديو رقم #2</h3>
+                </div>
+                <!-- Repeat for each video -->
+              </div>
+              
+              <div class="video-modal-container">
+                  <button class="close-button"><i class="fa fa-times" aria-hidden="true"></i></button>
+                <div class="video-modal">
+                  <div class="video-player"></div>
+                </div>
+                <div class="overlay"></div>
+              </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="video-gallery">
+                <div class="video-card" data-video="https://www.youtube.com/embed/MQZmRfWOib8">
+                  <div class="video-thumbnail">
+                    <img src="../images/sddefault (4).jpg" alt="Video Thumbnail">
+                    <button class="play-button"> <i class="fa fa-play"></i> </button>
+                  </div>
+                  <h3 class="video-title">فيديو رقم #3</h3>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="video-gallery">
+                <div class="video-card" data-video="https://www.youtube.com/embed/lPX0duH4GTg">
+                  <div class="video-thumbnail">
+                    <img src="../images/sddefault (1).jpg" alt="Video Thumbnail">
+                    <button class="play-button"> <i class="fa fa-play"></i> </button>
+                  </div>
+                  <h3 class="video-title">فيديو رقم #1</h3>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="video-gallery">
+                <div class="video-card" data-video="https://www.youtube.com/embed/NIk1-ck4c6Q">
+                  <div class="video-thumbnail">
+                    <img src="../images/sddefault (3).jpg" alt="Video Thumbnail">
+                    <button class="play-button"><i class="fa fa-play"></i></button>
+                  </div>
+                  <h3 class="video-title">فيديو رقم #2</h3>
+                </div>
+                <!-- Repeat for each video -->
+              </div>
+              
+              <div class="video-modal-container">
+                  <button class="close-button"><i class="fa fa-times" aria-hidden="true"></i></button>
+                <div class="video-modal">
+                  <div class="video-player"></div>
+                </div>
+                <div class="overlay"></div>
+              </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="video-gallery">
+                <div class="video-card" data-video="https://www.youtube.com/embed/MQZmRfWOib8">
+                  <div class="video-thumbnail">
+                    <img src="../images/sddefault (4).jpg" alt="Video Thumbnail">
+                    <button class="play-button"> <i class="fa fa-play"></i> </button>
+                  </div>
+                  <h3 class="video-title">فيديو رقم #3</h3>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="video-gallery">
+                <div class="video-card" data-video="https://www.youtube.com/embed/lPX0duH4GTg">
+                  <div class="video-thumbnail">
+                    <img src="../images/sddefault (1).jpg" alt="Video Thumbnail">
+                    <button class="play-button"> <i class="fa fa-play"></i> </button>
+                  </div>
+                  <h3 class="video-title">فيديو رقم #1</h3>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="video-gallery">
+                <div class="video-card" data-video="https://www.youtube.com/embed/NIk1-ck4c6Q">
+                  <div class="video-thumbnail">
+                    <img src="../images/sddefault (3).jpg" alt="Video Thumbnail">
+                    <button class="play-button"><i class="fa fa-play"></i></button>
+                  </div>
+                  <h3 class="video-title">فيديو رقم #2</h3>
+                </div>
+                <!-- Repeat for each video -->
+              </div>
+              
+              <div class="video-modal-container">
+                  <button class="close-button"><i class="fa fa-times" aria-hidden="true"></i></button>
+                <div class="video-modal">
+                  <div class="video-player"></div>
+                </div>
+                <div class="overlay"></div>
+              </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="video-gallery">
+                <div class="video-card" data-video="https://www.youtube.com/embed/MQZmRfWOib8">
+                  <div class="video-thumbnail">
+                    <img src="../images/sddefault (4).jpg" alt="Video Thumbnail">
+                    <button class="play-button"> <i class="fa fa-play"></i> </button>
+                  </div>
+                  <h3 class="video-title">فيديو رقم #3</h3>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="video-gallery">
+                <div class="video-card" data-video="https://www.youtube.com/embed/lPX0duH4GTg">
+                  <div class="video-thumbnail">
+                    <img src="../images/sddefault (1).jpg" alt="Video Thumbnail">
+                    <button class="play-button"> <i class="fa fa-play"></i> </button>
+                  </div>
+                  <h3 class="video-title">فيديو رقم #1</h3>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="video-gallery">
+                <div class="video-card" data-video="https://www.youtube.com/embed/NIk1-ck4c6Q">
+                  <div class="video-thumbnail">
+                    <img src="../images/sddefault (3).jpg" alt="Video Thumbnail">
+                    <button class="play-button"><i class="fa fa-play"></i></button>
+                  </div>
+                  <h3 class="video-title">فيديو رقم #2</h3>
+                </div>
+                <!-- Repeat for each video -->
+              </div>
+              
+              <div class="video-modal-container">
+                  <button class="close-button"><i class="fa fa-times" aria-hidden="true"></i></button>
+                <div class="video-modal">
+                  <div class="video-player"></div>
+                </div>
+                <div class="overlay"></div>
+              </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="video-gallery">
+                <div class="video-card" data-video="https://www.youtube.com/embed/MQZmRfWOib8">
+                  <div class="video-thumbnail">
+                    <img src="../images/sddefault (4).jpg" alt="Video Thumbnail">
+                    <button class="play-button"> <i class="fa fa-play"></i> </button>
+                  </div>
+                  <h3 class="video-title">فيديو رقم #3</h3>
+                </div>
+              </div>
+        </div>
+        
+    </div>
+  
+   </div>
+</section>
+<!-- Contact US -->
+<section id="stayconnect1" class="bglight position-relative padding noshadow">
+    <div class="container ">
+        <div class="widget ">
+            <div class="row">
+                <div class="col-md-12 text-center wow fadeIn mt-n3" data-wow-delay="300ms">
+                    <h2 class="heading bottom30 darkcolor font-light2 pt-1"><span class="font-normal">اتصل بنا</span>
+                        <span class="divider-center"></span>
+                    </h2>
+                    <div class="col-12 bottom35">
+                        <p>لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 order-sm-2">
+                    <div class="imageContainer wow fadeInLeft" style="background-image: url('../images/pexels-markus-spiske-1300-750.jpg');">
+                      
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="heading-title  wow fadeInUp" data-wow-delay="300ms">
+                        <form class=" wow fadeInUp" data-wow-delay="400ms" id="contact-form-data">
+                            <div class="row px-2">
+                                <div class="col-md-12 col-sm-12" id="result"></div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="name1" class="d-none"></label>
+                                        <input class="form-control" id="name1" type="text" placeholder="الاسم :" required  name="userName">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="email1" class="d-none"></label>
+                                        <input class="form-control" type="email" id="email1" placeholder="البريد الالكتروني:" name="userEmail">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group  ">
+                                        <select class="form-select form-control" required id="gender">
+                                            <option selected>نوع التواصل :</option>
+                                            <option value="complaints">شكاوى</option>
+                                            <option value="suggestions">اقتراحات</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="message1" class="d-none"></label>
+                                        <textarea class="form-control" id="message1" placeholder="الرسالة :" required  name="userMessage"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <button type="button" id="submit_btn1" class="contact_btn button gradient-btn w-100">ارسال</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact US ends -->
+
+
+
+    <!--Site Footer Here-->
+    <footer id="site-footer" class="position-relative bg-orange padding_top">
+        <div class="svg-footer-top-holder">
+            <div class="svg-footer-top"></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 ">
+                    <div class="footer_panel padding_bottom_half bottom20 text-center">
+                        <a href="index.html" class="footer_logo bottom25"><img src="../images/falazat_ico_white.png"
+                                alt="MegaOne"></a>
+                        <!-- <p class="whitecolor bottom25">ابتعد عن الأشخاص الذين يحاولون التقليل من شأن طموحاتك.</p> -->
+                        <div class="d-table w-100 address-item whitecolor bottom25" dir="ltr">
+                            <!-- <span class="d-table-cell align-middle"><i class="fas fa-mobile-alt"></i></span> -->
+                            <p class="d-table-cell align-middle bottom0">
+                                +20-1097700741 <a class="d-block" href="mailto:web@support.com">falazat@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 px-5">
+                    <div class="footer_panel d-flex flex-column bottom25 padding_bottom_half">
+                        <!-- padding_bottom_half bottom20 pl-0 pl-lg-5 -->
+                        <h3 class="whitecolor text-md-right text-center bottom25">خريطة الموقع</h3>
+                        <div class="d-flex justify-content-between">
+                             <ul class="links">
+                                <li class="text-right">
+                                    <i class="fa-solid mx-1 fa-caret-left" style="color: #ccc;"></i>
+                                    <a href="#header">الرئيسية</a>
+                                </li>
+                                <li class="text-right">
+                                    <i class="fa-solid mx-1 fa-caret-left" style="color: #ccc;"></i>
+                                    <a href="careers.html">التوظيف</a>
+                                </li>
+                                <li class="text-right">
+                                    <i class="fa-solid mx-1 fa-caret-left" style="color: #ccc;"></i>
+                                    <a href="news_new.html">اخر الاخبار</a>
+                                </li>
+                                <li class="text-right">
+                                    <i class="fa-solid mx-1 fa-caret-left" style="color: #ccc;"></i>
+                                    <a href="policies_regulations.html"> السياسات و اللوائح</a>
+                                </li>
+                                </li>
+
+                            </ul>
+                            <ul class="links">
+                                <li class="text-right">
+                                    <i class="fa-solid mx-1 fa-caret-left" style="color: #ccc;"></i>
+                                    <a href="members.html">الأعضاء</a>
+                                </li>
+                                <li class="text-right">
+                                    <i class="fa-solid mx-1 fa-caret-left" style="color: #ccc;"></i>
+                                    <a href="Subscription.html">الأكتتاب</a>
+                                </li>
+                                <li class="text-right">
+                                    <i class="fa-solid mx-1 fa-caret-left" style="color: #ccc;"></i>
+                                    <a href="news_new.html">المركز الاعلامي</a>
+                                </li>
+                               <li class="text-right">
+                                    <i class="fa-solid mx-1 fa-caret-left" style="color: #ccc;"></i>
+                                    <a href="committes-types.html">اللجان</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <div
+                        class="footer_panel d-flex flex-column bottom25 padding_bottom_half justify-content-sm-center align-items-sm-center">
+                        <!-- padding_bottom_half bottom20 pl-0 pl-lg-5 -->
+                        <h3 class="whitecolor text-right bottom25 ">تابعنا</h3>
+                        <ul class="links ">
+                            <li class="text-right">
+                                <i class="fab fa-facebook-f mx-1 text-white"></i>
+                                <a href="#header"> فيسبوك</a>
+                            </li>
+                            <li class="text-right">
+                                <i class="fab fa-twitter mx-1 text-white"></i>
+                                <a href="kids/html/careers.html">تويتر</a>
+                            </li>
+                            <li class="text-right">
+                                <i class="fab fa-instagram mx-1 text-white"></i>
+                                <a href="kids/html/news_new.html">انستجرام</a>
+                            </li>
+                            <li class="text-right">
+                                <i class="fab fa-linkedin-in mx-1 text-white"></i>
+                                <a href="kids/html/policies_regulations.html"> لينكد ان</a>
+                            </li>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 bottom20 padding_bottom_half">
+
+                    <h3 class="whitecolor text-right bottom25 ">العنوان</h3>
+                   <p class="text-right text-white"> <i class="fas fa-map-marker-alt text-white"></i> 135 شارع التحرير , القاهرة </p>
+                    <p class="text-right text-white"> <i class="fas fa-map-marker-alt text-white"></i> 36 المدينة المنورة , السعودية </p>
+                    <p class="text-right text-white"> <i class="fas fa-map-marker-alt text-white"></i> 55 مكة المكرمة , السعودية </p> 
+                
+                </div>
+            </div>
+        </div>
+    </footer>
+<a href="questionnare.html" class="floating-btn questionnareFloat">
+        <span class="initial-icon">
+            <i class="fa fa-comment-dots"></i>
+        </span>
+        <span class="hover-text">رأيك يهمنا</span>
+    </a>
+
+    <a href="stay_connect.html" class="floating-btn contactUsFloat">
+        <span class="initial-icon">
+            <i class="fa fa-phone"></i>
+        </span>
+        <span class="hover-text">أتصل بنا</span>
+    </a>
+<!--Footer ends-->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="../../vendor/js/bundle.min.js"></script>
+<!--to view items on reach-->
+<script src="../../vendor/js/jquery.appear.js"></script>
+<!--Owl Slider-->
+<script src="../../vendor/js/owl.carousel.min.js"></script>
+<!--Parallax Background-->
+<script src="../../vendor/js/parallaxie.min.js"></script>
+<!--Cubefolio Gallery-->
+<script src="../../vendor/js/jquery.cubeportfolio.min.js"></script>
+<!--Fancybox js-->
+<script src="../../vendor/js/jquery.fancybox.min.js"></script>
+<!--wow js-->
+<script src="../../vendor/js/wow.min.js"></script>
+<!--number counters-->
+<script src="../../kids/js/jquery-countTo.js"></script>
+<!--tooltip js-->
+<script src="../../kids/js/tooltipster.min.js"></script>
+<!-- REVOLUTION JS FILES -->
+<script src="../../vendor/js/jquery.themepunch.tools.min.js"></script>
+<script src="../../vendor/js/jquery.themepunch.revolution.min.js"></script>
+<!-- SLIDER REVOLUTION EXTENSIONS -->
+<script src="../../vendor/js/extensions/revolution.extension.actions.min.js"></script>
+<script src="../../vendor/js/extensions/revolution.extension.carousel.min.js"></script>
+<script src="../../vendor/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script src="../../vendor/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="../../vendor/js/extensions/revolution.extension.migration.min.js"></script>
+<script src="../../vendor/js/extensions/revolution.extension.navigation.min.js"></script>
+<script src="../../vendor/js/extensions/revolution.extension.parallax.min.js"></script>
+<script src="../../vendor/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="../../vendor/js/extensions/revolution.extension.video.min.js"></script>
+<!-- font awesome -->
+<script src="https://kit.fontawesome.com/385d561a40.js" crossorigin="anonymous"></script>
+<!--custom functions and script-->
+<script src="../../kids/js/functions.js"></script>
+<script>
+   $(document).ready(function() {
+  $(".play-button").click(function() {
+    debugger
+    var videoUrl = $(this).closest(".video-card").data("video");
+    var iframe = `<iframe src="${videoUrl}" width="100%" height="100%" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen ></iframe>`
+    // var iframe = '<iframe src="' + videoUrl + '" allowfullscreen></iframe>';
+    $(".video-player").html(iframe);
+    $(".video-modal-container").fadeIn();
+  });
+
+  $(".close-button, .overlay").click(function() {
+    $(".video-modal-container").fadeOut();
+    $(".video-player").html("");
+  });
+});
+</script>
+</body>
+</html>
+
+<!-- src="https://www.youtube.com/embed/lPX0duH4GTg" title="osratouna tv - قناة أسرتنا | أغنية الخضروات ومجموعة أغاني أطفال" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  -->

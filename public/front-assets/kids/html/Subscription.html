@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> فلذات | الأكتتاب</title>
+    <link href="../../kids/images/logo(فلذات).PNG" rel="icon">
+    <link rel="stylesheet" href="../../vendor/css/bundle.min.css">
+    <link rel="stylesheet" href="../../vendor/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../vendor/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="../../vendor/css/cubeportfolio.min.css">
+    <link rel="stylesheet" href="../../kids/css/tooltipster.min.css">
+    <link rel="stylesheet" href="../../vendor/css/revolution-settings.min.css">
+    <link rel="stylesheet" href="../../kids/css/revolution/navigation.css">
+    <link href="../../vendor/css/LineIcons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../kids/css/custom.css">
+    <link rel="stylesheet" href="../../kids/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;600&display=swap" rel="stylesheet"> -->
+
+    <style>
+        #multi-step-form-container {
+            margin-top: 2rem;
+        }
+
+
+
+        #multi-step-form-container .button {
+            padding: 0.7rem 1.5rem;
+            border: 1px solid #BB5F44;
+            background-color: #BB5F44;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #multi-step-form-container .submit-btn {
+            border: 1px solid #548E99;
+            background-color: #548E99;
+        }
+
+        #multi-step-form-container .mt-3 {
+            margin-top: 2rem;
+        }
+
+
+        #multi-step-form-container .form-step {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 9px;
+            padding: 1rem;
+        }
+
+        #multi-step-form-container .font-normal {
+            font-weight: normal;
+        }
+
+        #multi-step-form-container ul.form-stepper {
+            counter-reset: section;
+            margin-bottom: 3rem;
+        }
+
+        #multi-step-form-container ul.form-stepper .form-stepper-circle {
+            position: relative;
+        }
+
+        #multi-step-form-container ul.form-stepper .form-stepper-circle span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+        }
+
+        #multi-step-form-container .form-stepper-horizontal {
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        #multi-step-form-container ul.form-stepper>li:not(:last-of-type) {
+            margin-bottom: 0.625rem;
+            -webkit-transition: margin-bottom 0.4s;
+            -o-transition: margin-bottom 0.4s;
+            transition: margin-bottom 0.4s;
+        }
+
+        #multi-step-form-container .form-stepper-horizontal>li:not(:last-of-type) {
+            margin-bottom: 0 !important;
+        }
+
+        #multi-step-form-container .form-stepper-horizontal li {
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            -webkit-box-align: start;
+            -ms-flex-align: start;
+            align-items: start;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+        }
+
+        #multi-step-form-container .form-stepper-horizontal li:not(:last-child):after {
+            position: relative;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            height: 1px;
+            content: "";
+            top: 32%;
+        }
+
+        #multi-step-form-container .form-stepper-horizontal li:after {
+            background-color: #dee2e6;
+        }
+
+        #multi-step-form-container .form-stepper-horizontal li.form-stepper-completed:after {
+            background-color: #548E99;
+        }
+
+        #multi-step-form-container .form-stepper-horizontal li:last-child {
+            flex: unset;
+        }
+
+        #multi-step-form-container ul.form-stepper li a .form-stepper-circle {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            margin-right: 0;
+            line-height: 1.7rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.38);
+            border-radius: 50%;
+        }
+
+        #multi-step-form-container .form-stepper .form-stepper-active .form-stepper-circle {
+            background-color: #BB5F44 !important;
+            color: #fff;
+        }
+
+        #multi-step-form-container .form-stepper .form-stepper-active .label {
+            color: #BB5F44 !important;
+        }
+
+        #multi-step-form-container .form-stepper .form-stepper-active .form-stepper-circle:hover {
+            background-color: #BB5F44 !important;
+            color: #fff !important;
+        }
+
+        #multi-step-form-container .form-stepper .form-stepper-unfinished .form-stepper-circle {
+            background-color: #f8f7ff;
+        }
+
+        #multi-step-form-container .form-stepper .form-stepper-completed .form-stepper-circle {
+            background-color: #548E99 !important;
+            color: #fff;
+        }
+
+        #multi-step-form-container .form-stepper .form-stepper-completed .label {
+            color: #548E99 !important;
+        }
+
+        #multi-step-form-container .form-stepper .form-stepper-completed .form-stepper-circle:hover {
+            background-color: #548E99 !important;
+            color: #fff !important;
+        }
+
+        #multi-step-form-container .form-stepper .form-stepper-active span.text-muted {
+            color: #fff !important;
+        }
+
+        #multi-step-form-container .form-stepper .form-stepper-completed span.text-muted {
+            color: #fff !important;
+        }
+
+        #multi-step-form-container .form-stepper .label {
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        #multi-step-form-container .form-stepper a {
+            cursor: default;
+        }
+
+        /* file upload style below */
+
+        .upload {
+            position: relative;
+            /* width: 400px; */
+            min-height: 260px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+            /* padding-bottom: 20px; */
+            background: #fff;
+            animation: fadeup 0.5s 0.5s ease both;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        .upload .upload-files header {
+            background: #BB5F44;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            text-align: center;
+        }
+
+        .upload .upload-files header p {
+            color: #fff;
+            font-size: 40px;
+            margin: 0;
+            padding: 50px 0;
+        }
+
+        .upload .upload-files header p i {
+            transform: translateY(20px);
+            opacity: 0;
+            font-size: 30px;
+            animation: fadeup 0.5s 1s ease both;
+        }
+
+        .upload .upload-files header p .up {
+            font-weight: bold;
+            transform: translateX(-20px);
+            display: inline-block;
+            opacity: 0;
+            animation: faderight 0.5s 1.5s ease both;
+        }
+
+        .upload .upload-files header p .load {
+            display: inline-block;
+            font-weight: 100;
+            margin-left: -8px;
+            transform: translateX(-20px);
+            opacity: 0;
+            animation: faderight 1s 1.5s ease both;
+        }
+
+        .upload .upload-files .body {
+            text-align: center;
+            padding: 50px 0;
+            padding-bottom: 30px;
+        }
+
+        .upload .upload-files .body.hidden {
+            display: none;
+        }
+
+        .upload .upload-files .body input {
+            visibility: hidden;
+        }
+
+        .upload .upload-files .body i {
+            font-size: 65px;
+            color: lightgray;
+        }
+
+        .upload .upload-files .body p {
+            font-size: 14px;
+            padding-top: 15px;
+            line-height: 1.4;
+        }
+
+        .upload .upload-files .body p b,
+        .upload .upload-files .body p a {
+            color: #BB5F44;
+        }
+
+        .upload .upload-files .body.active {
+            border: dashed 2px #BB5F44;
+        }
+
+        .upload .upload-files .body.active i {
+            box-shadow: 0 0 0 -3px #fff, 0 0 0 lightgray, 0 0 0 -3px #fff, 0 0 0 lightgray;
+            animation: file 0.5s ease both;
+        }
+
+        @keyframes file {
+            50% {
+                box-shadow: -8px 8px 0 -3px #fff, -8px 8px 0 lightgray, -8px 8px 0 -3px #fff, -8px 8px 0 lightgray;
+            }
+
+            75%,
+            100% {
+                box-shadow: -8px 8px 0 -3px #fff, -8px 8px 0 lightgray, -16px 16px 0 -3px #fff, -16px 16px 0 lightgray;
+            }
+        }
+
+        .upload .upload-files .body.active .pointer-none {
+            pointer-events: none;
+        }
+
+        .upload .upload-files footer {
+            width: 100%;
+            margin: 0 auto;
+            height: 0;
+        }
+
+        .upload .upload-files footer .divider {
+            margin: 0 auto;
+            width: 0;
+            border-top: solid 4px #BB5F44;
+            text-align: center;
+            overflow: hidden;
+            transition: width 0.5s ease;
+        }
+
+        .upload .upload-files footer .divider span {
+            display: inline-block;
+            transform: translateY(-25px);
+            font-size: 12px;
+            padding-top: 8px;
+        }
+
+        .upload .upload-files footer.hasFiles {
+            height: auto;
+        }
+
+        .upload .upload-files footer.hasFiles .divider {
+            width: 100%;
+        }
+
+        .upload .upload-files footer.hasFiles .divider span {
+            transform: translateY(0);
+            transition: transform 0.5s 0.5s ease;
+        }
+
+        .upload .upload-files footer .list-files {
+            width: 320px;
+            margin: 0 auto;
+            margin-top: 15px;
+            padding-left: 5px;
+            text-align: center;
+            overflow-x: hidden;
+            overflow-y: auto;
+            max-height: 210px;
+        }
+
+        .upload .upload-files footer .list-files::-webkit-scrollbar-track {
+            background-color: rgba(211, 211, 211, .25);
+        }
+
+        .upload .upload-files footer .list-files::-webkit-scrollbar {
+            width: 4px;
+            background-color: rgba(211, 211, 211, .25);
+        }
+
+        .upload .upload-files footer .list-files::-webkit-scrollbar-thumb {
+            background-color: rgba(77, 182, 172, .5);
+        }
+
+        .upload .upload-files footer .list-files .file {
+            width: 300px;
+            min-height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            opacity: 0;
+            animation: fade 0.35s ease both;
+        }
+
+        .upload .upload-files footer .list-files .file .name {
+            font-size: 12px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 80px;
+            text-align: left;
+        }
+
+        .upload .upload-files footer .list-files .file .progress {
+            width: 175px;
+            height: 5px;
+            border: solid 1px lightgray;
+            border-radius: 2px;
+            background: linear-gradient(to left, rgba(77, 182, 172, .2), #BB5F44) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .upload .upload-files footer .list-files .file .progress.active {
+            animation: progress 30s linear;
+        }
+
+        @keyframes progress {
+            from {
+                background-size: 0 100%;
+            }
+
+            to {
+                background-size: 100% 100%;
+            }
+        }
+
+        .upload .upload-files footer .list-files .file .done {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            background: #BB5F44;
+            border-radius: 50%;
+            margin-left: -10px;
+            transform: scale(0);
+            position: relative;
+        }
+
+        .upload .upload-files footer .list-files .file .done:before {
+            content: "View";
+            position: absolute;
+            top: 0;
+            left: -5px;
+            font-size: 24px;
+            opacity: 0;
+        }
+
+        .upload .upload-files footer .list-files .file .done:hover:before {
+            transition: all 0.25s ease;
+            top: -30px;
+            opacity: 1;
+        }
+
+        .upload .upload-files footer .list-files .file .done.anim {
+            animation: done1 0.5s ease forwards;
+        }
+
+        .upload .upload-files footer .list-files .file .done.anim #path {
+            animation: done2 2.5s 0.5s ease forwards;
+        }
+
+        .upload .upload-files footer .list-files .file .done #path {
+            stroke-dashoffset: 7387.5942382813;
+            stroke-dasharray: 7387.5942382813 7387.5942382813;
+            stroke: #fff;
+            fill: transparent;
+            stroke-width: 50px;
+        }
+
+        @keyframes done2 {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes done1 {
+            50% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+
+            80% {
+                transform: scale(0.25);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+        }
+
+        .upload .upload-files footer .importar {
+            width: 125px;
+            outline: none;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 20px;
+            margin: auto;
+            border: solid 1px #BB5F44;
+            color: #BB5F44;
+            background: transparent;
+            padding: 8px 15px;
+            font-size: 12px;
+            border-radius: 4px;
+            font-family: Roboto;
+            line-height: 1;
+            cursor: pointer;
+            transform: translateY(15px);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .upload .upload-files footer .importar.active {
+            transition: transform 0.5s 1.5s ease, opacity 0.5s 1.5s ease;
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .upload .upload-files footer .importar:hover {
+            background: #BB5F44;
+            color: #fff;
+        }
+
+        @keyframes fadeup {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes faderight {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .upload {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        /* end of upload  */
+
+        .dummy-positioning {
+	 width: 100%;
+	 /* height: 100vh; */
+	 align-items: center;
+	 justify-content: center;
+}
+ .success-icon {
+	 display: inline-block;
+	 width: 8em;
+	 height: 8em;
+	 font-size: 20px;
+	 border-radius: 50%;
+	 border: 4px solid #96df8f;
+	 background-color: #fff;
+	 position: relative;
+	 overflow: hidden;
+	 transform-origin: center;
+	 animation: showSuccess 180ms ease-in-out;
+	 transform: scale(1);
+}
+ .success-icon__tip, .success-icon__long {
+	 display: block;
+	 position: absolute;
+	 height: 4px;
+	 background-color: #96df8f;
+	 border-radius: 10px;
+}
+ .success-icon__tip {
+	 width: 2.4em;
+	 top: 4.3em;
+	 left: 1.4em;
+	 transform: rotate(45deg);
+	 animation: tipInPlace 300ms ease-in-out;
+	 animation-fill-mode: forwards;
+	 animation-delay: 180ms;
+	 visibility: hidden;
+}
+ .success-icon__long {
+	 width: 4em;
+	 transform: rotate(-45deg);
+	 top: 3.7em;
+	 left: 2.75em;
+	 animation: longInPlace 140ms ease-in-out;
+	 animation-fill-mode: forwards;
+	 visibility: hidden;
+	 animation-delay: 440ms;
+}
+ @keyframes showSuccess {
+	 from {
+		 transform: scale(0);
+	}
+	 to {
+		 transform: scale(1);
+	}
+}
+ @keyframes tipInPlace {
+	 from {
+		 width: 0em;
+		 top: 0em;
+		 left: -1.6em;
+	}
+	 to {
+		 width: 2.4em;
+		 top: 4.3em;
+		 left: 1.4em;
+		 visibility: visible;
+	}
+}
+ @keyframes longInPlace {
+	 from {
+		 width: 0em;
+		 top: 5.1em;
+		 left: 3.2em;
+	}
+	 to {
+		 width: 4em;
+		 top: 3.7em;
+		 left: 2.75em;
+		 visibility: visible;
+	}
+}
+ 
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="90">
+    <!--PreLoader-->
+    <div class="loader">
+        <div class="loader-spinner"></div>
+    </div>
+    <!--PreLoader Ends-->
+ <!-- header -->
+<header class="site-header" id="header">
+    <nav class="navbar navbar-expand-lg transparent-bg static-nav ">
+        <!-- <div class="color-lines d-block">
+
+    <div class="row no-gutters top-color-bar height-30">
+        <div class="col-4 bg-red"></div>
+        <div class="col-4 bg-orange"></div>
+        <div class="col-4 bg-blue"></div>
+    </div>
+
+        <div class="svg-div-zig-outer">
+            <div class="svg-div-zig"></div>
+        </div>
+
+
+    </div> -->
+        <div class="container navbar-design">
+            <div class="navbar-user">
+                <img class="mx-2" src="../images/CEO.jpg" alt="Profile Logo">
+                <ul class="navbar-nav customNav">
+                    <li class="nav-item dropdown position-relative">
+                        <a class="nav-link dropdown-toggle" href="profile.html" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"> أحمد ياسر </a>
+                        <div class="dropdown-menu text-right p-3">
+                            <a class="dropdown-item" href="profile.html"> <i class="fa fa-user blueColor "
+                                    aria-hidden="true"></i> الملف الشخصي</a>
+                            <a class="dropdown-item" href="login.html"><i class="fas fa-right-from-bracket blueColor"></i>
+                                تسجيل خروج</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <a class="navbar-brand mr-auto mr-lg-0" href="../../index.html">
+                <img src="../images/falazat_ico_white.png" alt="logo" class="logo-default">
+                <img src="../images/logo_فلذات_-removebg-preview.png" alt="logo" class="logo-scrolled">
+            </a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="about.html">حول</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="members.html">الأعضاء</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html#our-apps">الخدمات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="Subscription.html">الاكتتاب</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="branches.html">فروعنا</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news_new.html">المركز الاعلامي</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="committes-types.html">اللجان</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="careers.html">الوظائف</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link " href="questionnare.html">رأيك يهمنا</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link " href="login.html">تسجيل</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!--side menu open button-->
+        <a href="javascript:void(0)" class="d-inline-block sidemenu_btn" id="sidemenu_toggle">
+            <span></span> <span></span> <span></span>
+        </a>
+        <div class="sticky-nav-bottom-holder-svg">
+            <div class="svg-bottom"></div>
+        </div>
+    </nav>
+    <!-- side menu -->
+    <div class="side-menu opacity-0 bg-blue">
+        <div class="overlay"></div>
+        <div class="inner-wrapper">
+            <span class="btn-close" id="btn_sideNavClose"><i></i><i></i></span>
+            <nav class="side-nav w-100" dir="rtl">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link collapsePagesSideMenu collapsed" data-toggle="collapse"
+                            href="#sideNavPages1" aria-expanded="false">
+                            <img class="mx-2 my-2" src="../images/CEO.jpg" alt="Profile Logo"> 
+                             أحمد ياسر 
+                             <i class="fas fa-chevron-down"></i> 
+                            </a>
+                        <div id="sideNavPages1" class="sideNavPages collapse">
+                            <ul class="navbar-nav mt-2">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="profile.html"> <i class="fa fa-user" aria-hidden="true"></i>
+                                        الملف الشخصي</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="login.html"><i class="fas fa-right-from-bracket"></i> تسجيل
+                                        خروج</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="about.html">حول</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="members.html">الأعضاء</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html#our-apps">الخدمات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="Subscription.html">الاكتتاب</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="branches.html">فروعنا</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="careers.html">الوظائف</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news_new.html">المركز الاعلامي</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="committes-types.html">اللجان</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link " href="questionnare.html">رأيك يهمنا</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link " href="login.html">تسجيل</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="side-footer w-100">
+                <ul class="social-icons-simple white top40">
+                    <li><a href="javascript:void(0)" class="facebook"><i class="fab fa-facebook-f"></i> </a> </li>
+                    <li><a href="javascript:void(0)" class="twitter"><i class="fab fa-twitter"></i> </a> </li>
+                    <li><a href="javascript:void(0)" class="insta"><i class="fab fa-instagram"></i> </a> </li>
+                </ul>
+                <p class="whitecolor">&copy; 2023 فلذات. Made With Love by Ahmed Yasser</p>
+            </div>
+        </div>
+    </div>
+    <div id="close_side_menu" class="tooltip"></div>
+    <!-- End side menu -->
+</header>
+<!-- header -->
+
+    <!--Page Header-->
+    <section id="main-banner-page" class="position-relative page-header service-header section-nav-smooth parallax">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 offset-lg-2">
+                    <div class="page-titles whitecolor text-center padding_top_160 padding_bottom">
+                        <h2 class="font-bold" style="color: #C95A3D;">فلذات الطفولة</h2>
+                        <h3 class="font-19 pb-4 pt-2 color-dark1 font-bold">الافضل لطفلك</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="bgdefault  title-wrap mt-n5">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 whitecolor">
+                        <h3 class="float-left">الأكتتاب</h3>
+                        <ul class="breadcrumb top10 bottom10 float-right">
+                            <li class="breadcrumb-item hover-light text-bold"><a href="../../index.html">الرئيسية</a>
+                            </li>
+                            <li class="breadcrumb-item hover-light text-bold">الأكتتاب</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="padding">
+        <div class="container">
+            <h2 class="text-center">نموذج الأكتتاب</h2>
+            <div id="multi-step-form-container">
+                <!-- Form Steps / Progress Bar -->
+                <ul class="form-stepper form-stepper-horizontal text-center mx-auto pl-0">
+                    <!-- Step 1 -->
+                    <li class="form-stepper-active text-center form-stepper-list" step="1">
+                        <a class="mx-2">
+                            <span class="form-stepper-circle">
+                                <span><i class="fa fa-address-card" aria-hidden="true"></i></span>
+                            </span>
+                            <div class="label">البيانات الشخصية</div>
+                        </a>
+                    </li>
+                    <!-- Step 2 -->
+                    <li class="form-stepper-unfinished text-center form-stepper-list" step="2">
+                        <a class="mx-2">
+                            <span class="form-stepper-circle text-muted">
+                                <span><i class="fa fa-credit-card-alt" aria-hidden="true"></i></span>
+                            </span>
+                            <div class="label text-muted">البيانات المالية</div>
+                        </a>
+                    </li>
+                    <!-- Step 3 -->
+                    <li class="form-stepper-unfinished text-center form-stepper-list" step="3">
+                        <a class="mx-2">
+                            <span class="form-stepper-circle text-muted">
+                                <span><i class="fa fa-check" aria-hidden="true"></i></span>
+                            </span>
+                            <div class="label text-muted">تم</div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Step Wise Form Content -->
+                <form id="userAccountSetupForm" name="userAccountSetupForm" enctype="multipart/form-data" method="POST">
+                    <!-- Step 1 Content -->
+                    <section id="step-1" class="form-step ">
+                        <h3 class="font-normal text-right slideInLeft animated">البيانات الشخصية</h3>
+                        <!-- Step 1 input fields -->
+                        <div class="row mt-3 slideInRight animated">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group ">
+                                    <label for="fullName" class="d-none"></label>
+                                    <input class="form-control" type="text" placeholder="الأسم بالكامل:" required
+                                        id="fullName">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group ">
+                                    <label for="latinName" class="d-none"></label>
+                                    <input class="form-control" type="text" placeholder="الأسم بالأنجليزي:" required
+                                        id="latinName">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group ">
+                                    <label for="nationalId" class="d-none"></label>
+                                    <input class="form-control" type="number"
+                                        placeholder="رقم الهوية الوطنية أو السجل التجاري للشركات:" required
+                                        id="nationalId">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group mb-0 ">
+                                    <label for="phoneNumber" class="d-none"></label>
+                                    <div class="d-flex justify-content-between">
+                                        <input class="form-control" style="flex: 0 0 75%;" type="number"
+                                            placeholder="أضف رقم الجوال:" required id="phoneNumber">
+                                        <input class="form-control" style="flex: 0 0 23%;" type="number"
+                                            placeholder="كود البلد:" required id="phoneNumber">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group ">
+                                    <label for="loginEmail" class="d-none"></label>
+                                    <input class="form-control" type="email" placeholder="البريد الالكتروني:" required
+                                        id="loginEmail">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group ">
+                                    <label for="datepicker" class="d-none"></label>
+                                    <input class="form-control" type="text" placeholder="تاريخ الميلاد:" required
+                                        name="datepicker" id="datepicker" lang="ar">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group  ">
+                                    <select class="form-select form-control" required id="gender">
+                                        <option selected>الجنس :</option>
+                                        <option value="male">ذكر</option>
+                                        <option value="female">أنثي</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group ">
+                                    <label for="loginEmail" class="d-none"></label>
+                                    <input class="form-control" type="email" placeholder="العملة:" required
+                                        id="currency">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group ">
+                                    <label for="employer" class="d-none"></label>
+                                    <input class="form-control" type="text" placeholder="جهة العمل:" required
+                                        id="employer">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group ">
+                                    <label for="membershipNo" class="d-none"></label>
+                                    <input class="form-control" type="text" placeholder="رقم العضوية (ان وجد):" required
+                                        id="membershipNo">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group  ">
+                                    <select class="form-select form-control" required id="gender">
+                                        <option selected>صفة المساهم</option>
+                                        <option value="1">موظف</option>
+                                        <option value="2">مستفيد</option>
+                                        <option value="3">حضانة</option>
+                                        <option value="4">مدير نظام</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group ">
+                                    <label for="employer" class="d-none"></label>
+                                    <textarea class="form-control" name="employer" id="employer" rows="5"
+                                        placeholder="العنوان "></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="mt-3">
+                            <button class="button btn-navigate-form-step" type="button" step_number="2">التالي</button>
+                        </div>
+                    </section>
+                    <!-- Step 2 Content, default hidden on page load. -->
+                    <section id="step-2" class="form-step d-none">
+                        <h3 class="font-normal text-right slideInLeft animated">البيانات المالية</h3>
+                        <!-- Step 2 input fields -->
+                        <div class="row mt-3 slideInRight animated">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group ">
+                                    <label for="shareValue" class="d-none"></label>
+                                    <input class="form-control" type="text" placeholder="قيمة الأسهم الأسمية:" required
+                                        id="shareValue">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group ">
+                                    <label for="administrativeFees" class="d-none"></label>
+                                    <input class="form-control" type="number" placeholder=" الرسوم الأدارية (%) : "
+                                        required id="administrativeFees">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group ">
+                                    <label for="issuanceContracts" class="d-none"></label>
+                                    <input class="form-control" type="number"
+                                        placeholder="عدد الأسهم المراد الأكتتاب فيها :" required id="issuanceContracts">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="d-flex w-100 py-2">
+                                    <label > عقود الأصدار :</label>
+                                </div>
+                                <div class="upload mb-5">
+                                    <div class="upload-files">
+                                        <div class="body" id="drop">
+                                            <i class="fa fa-file-text-o pointer-none" aria-hidden="true"></i>
+                                            <p class="pointer-none"><b>اسحب</b> الملفات هنا <br /> او <a href=""
+                                                    id="triggerFile">تصفح</a> لبدء عملية الرفع</p>
+                                            <input type="file" multiple="multiple" />
+                                        </div>
+                                        <footer>
+                                            <div class="divider">
+                                                <span>
+                                                    <AR>الملفات المرفوعة</AR>
+                                                </span>
+                                            </div>
+                                            <div class="list-files">
+
+                                            </div>
+                                            <button type="button" class="importar">تحديث الملفات</button>
+                                        </footer>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="form-group ">
+                                    <label for="issuanceContracts" class="d-none"></label>
+                                    <input class="form-control" type="number" placeholder="عقود الأصدار :" required id="issuanceContracts">
+                                </div> -->
+                            </div>
+                          
+
+                        </div>
+                        <div class="mt-3">
+                            <button class="button btn-navigate-form-step" type="button" step_number="1">السابق</button>
+                            <button class="button btn-navigate-form-step" type="button" step_number="3">ارسال</button>
+                        </div>
+                    </section>
+                    <!-- Step 3 Content, default hidden on page load. -->
+                    <section id="step-3" class="form-step d-none py-5">
+                        <!-- Step 3 input fields -->
+                        <div class="dummy-positioning d-flex py-2">
+  
+                            <div class="success-icon">
+                              <div class="success-icon__tip"></div>
+                              <div class="success-icon__long"></div>
+                            </div>
+                            
+                          </div>
+                          <div class="d-flex justify-content-center align-items-center flex-column">
+                            <h3>تم ارسال طلب الأكتتاب بنجاح </h3>
+                            <h4>سيتم اصدار شهادة
+                              إلكترونية مختومة وتُرسل عن طريق البريد اإللكتروني في حالة الموافقة علي الطلب</h4>
+                          </div>
+                          
+                    </section>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+   <!-- Contact US -->
+<section id="stayconnect1" class="bglight position-relative padding noshadow">
+    <div class="container ">
+        <div class="widget ">
+            <div class="row">
+                <div class="col-md-12 text-center wow fadeIn mt-n3" data-wow-delay="300ms">
+                    <h2 class="heading bottom30 darkcolor font-light2 pt-1"><span class="font-normal">اتصل بنا</span>
+                        <span class="divider-center"></span>
+                    </h2>
+                    <div class="col-12 bottom35">
+                        <p>لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 order-sm-2">
+                    <div class="imageContainer wow fadeInLeft" style="background-image: url('../images/pexels-markus-spiske-1300-750.jpg');">
+                      
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="heading-title  wow fadeInUp" data-wow-delay="300ms">
+                        <form class=" wow fadeInUp" data-wow-delay="400ms" id="contact-form-data">
+                            <div class="row px-2">
+                                <div class="col-md-12 col-sm-12" id="result"></div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="name1" class="d-none"></label>
+                                        <input class="form-control" id="name1" type="text" placeholder="الاسم :" required  name="userName">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="email1" class="d-none"></label>
+                                        <input class="form-control" type="email" id="email1" placeholder="البريد الالكتروني:" name="userEmail">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group  ">
+                                        <select class="form-select form-control" required id="gender">
+                                            <option selected>نوع التواصل :</option>
+                                            <option value="complaints">شكاوى</option>
+                                            <option value="suggestions">اقتراحات</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="message1" class="d-none"></label>
+                                        <textarea class="form-control" id="message1" placeholder="الرسالة :" required  name="userMessage"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <button type="button" id="submit_btn1" class="contact_btn button gradient-btn w-100">ارسال</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact US ends -->
+       <!--Site Footer Here-->
+       <footer id="site-footer" class="position-relative bg-orange padding_top">
+        <div class="svg-footer-top-holder">
+            <div class="svg-footer-top"></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 ">
+                    <div class="footer_panel padding_bottom_half bottom20 text-center">
+                        <a href="index.html" class="footer_logo bottom25"><img src="../images/falazat_ico_white.png"
+                                alt="MegaOne"></a>
+                        <!-- <p class="whitecolor bottom25">ابتعد عن الأشخاص الذين يحاولون التقليل من شأن طموحاتك.</p> -->
+                        <div class="d-table w-100 address-item whitecolor bottom25" dir="ltr">
+                            <!-- <span class="d-table-cell align-middle"><i class="fas fa-mobile-alt"></i></span> -->
+                            <p class="d-table-cell align-middle bottom0">
+                                +20-1097700741 <a class="d-block" href="mailto:web@support.com">falazat@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 px-5">
+                    <div class="footer_panel d-flex flex-column bottom25 padding_bottom_half">
+                        <!-- padding_bottom_half bottom20 pl-0 pl-lg-5 -->
+                        <h3 class="whitecolor text-md-right text-center bottom25">خريطة الموقع</h3>
+                        <div class="d-flex justify-content-between">
+                             <ul class="links">
+                                <li class="text-right">
+                                    <i class="fa-solid mx-1 fa-caret-left" style="color: #ccc;"></i>
+                                    <a href="#header">الرئيسية</a>
+                                </li>
+                                <li class="text-right">
+                                    <i class="fa-solid mx-1 fa-caret-left" style="color: #ccc;"></i>
+                                    <a href="careers.html">التوظيف</a>
+                                </li>
+                                <li class="text-right">
+                                    <i class="fa-solid mx-1 fa-caret-left" style="color: #ccc;"></i>
+                                    <a href="news_new.html">اخر الاخبار</a>
+                                </li>
+                                <li class="text-right">
+                                    <i class="fa-solid mx-1 fa-caret-left" style="color: #ccc;"></i>
+                                    <a href="policies_regulations.html"> السياسات و اللوائح</a>
+                                </li>
+                                </li>
+
+                            </ul>
+                            <ul class="links">
+                                <li class="text-right">
+                                    <i class="fa-solid mx-1 fa-caret-left" style="color: #ccc;"></i>
+                                    <a href="members.html">الأعضاء</a>
+                                </li>
+                                <li class="text-right">
+                                    <i class="fa-solid mx-1 fa-caret-left" style="color: #ccc;"></i>
+                                    <a href="Subscription.html">الأكتتاب</a>
+                                </li>
+                                <li class="text-right">
+                                    <i class="fa-solid mx-1 fa-caret-left" style="color: #ccc;"></i>
+                                    <a href="news_new.html">المركز الاعلامي</a>
+                                </li>
+                               <li class="text-right">
+                                    <i class="fa-solid mx-1 fa-caret-left" style="color: #ccc;"></i>
+                                    <a href="committes-types.html">اللجان</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <div
+                        class="footer_panel d-flex flex-column bottom25 padding_bottom_half justify-content-sm-center align-items-sm-center">
+                        <!-- padding_bottom_half bottom20 pl-0 pl-lg-5 -->
+                        <h3 class="whitecolor text-right bottom25 ">تابعنا</h3>
+                        <ul class="links ">
+                            <li class="text-right">
+                                <i class="fab fa-facebook-f mx-1 text-white"></i>
+                                <a href="#header"> فيسبوك</a>
+                            </li>
+                            <li class="text-right">
+                                <i class="fab fa-twitter mx-1 text-white"></i>
+                                <a href="kids/html/careers.html">تويتر</a>
+                            </li>
+                            <li class="text-right">
+                                <i class="fab fa-instagram mx-1 text-white"></i>
+                                <a href="kids/html/news_new.html">انستجرام</a>
+                            </li>
+                            <li class="text-right">
+                                <i class="fab fa-linkedin-in mx-1 text-white"></i>
+                                <a href="kids/html/policies_regulations.html"> لينكد ان</a>
+                            </li>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 bottom20 padding_bottom_half">
+
+                    <h3 class="whitecolor text-right bottom25 ">العنوان</h3>
+                   <p class="text-right text-white"> <i class="fas fa-map-marker-alt text-white"></i> 135 شارع التحرير , القاهرة </p>
+                    <p class="text-right text-white"> <i class="fas fa-map-marker-alt text-white"></i> 36 المدينة المنورة , السعودية </p>
+                    <p class="text-right text-white"> <i class="fas fa-map-marker-alt text-white"></i> 55 مكة المكرمة , السعودية </p> 
+                
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="questionnare.html" class="floating-btn questionnareFloat">
+        <span class="initial-icon">
+            <i class="fa fa-comment-dots"></i>
+        </span>
+        <span class="hover-text">رأيك يهمنا</span>
+    </a>
+
+    <a href="stay_connect.html" class="floating-btn contactUsFloat">
+        <span class="initial-icon">
+            <i class="fa fa-phone"></i>
+        </span>
+        <span class="hover-text">أتصل بنا</span>
+    </a>
+    <!--Footer ends-->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../../vendor/js/bundle.min.js"></script>
+    <!--to view items on reach-->
+    <script src="../../vendor/js/jquery.appear.js"></script>
+    <!--Owl Slider-->
+    <script src="../../vendor/js/owl.carousel.min.js"></script>
+    <!--Parallax Background-->
+    <script src="../../vendor/js/parallaxie.min.js"></script>
+    <!--Cubefolio Gallery-->
+    <script src="../../vendor/js/jquery.cubeportfolio.min.js"></script>
+    <!--Fancybox js-->
+    <script src="../../vendor/js/jquery.fancybox.min.js"></script>
+    <!--wow js-->
+    <script src="../../vendor/js/wow.min.js"></script>
+    <!--number counters-->
+    <script src="../../kids/js/jquery-countTo.js"></script>
+    <!--tooltip js-->
+    <script src="../../kids/js/tooltipster.min.js"></script>
+    <!-- REVOLUTION JS FILES -->
+    <script src="../../vendor/js/jquery.themepunch.tools.min.js"></script>
+    <script src="../../vendor/js/jquery.themepunch.revolution.min.js"></script>
+    <!-- SLIDER REVOLUTION EXTENSIONS -->
+    <script src="../../vendor/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="../../vendor/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="../../vendor/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="../../vendor/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="../../vendor/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="../../vendor/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="../../vendor/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="../../vendor/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="../../vendor/js/extensions/revolution.extension.video.min.js"></script>
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/385d561a40.js" crossorigin="anonymous"></script>
+    <!--custom functions and script-->
+    <script src="../../kids/js/functions.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+    <script>
+        var picker = new Pikaday({
+            field: document.getElementById('datepicker'),
+            format: 'YYYY-MM-DD',
+            i18n: {
+                previousMonth: 'الشهر السابق',
+                nextMonth: 'الشهر التالي',
+                months: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو',
+                    'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
+                weekdays: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+                weekdaysShort: ['أحد', 'اثنين', 'ثلاثاء', 'أربعاء', 'خميس', 'جمعة', 'سبت'],
+                // Add Arabic digits for day and year fields
+                yearSuffix: 'م',
+                daySuffix: 'يوم',
+                // Override the function that formats the day number
+                formatDate: function (date) {
+                    return ArabicDigits(date.getDate()) + ' ' + this.months[date.getMonth()] + ' ' + ArabicDigits(date.getFullYear());
+                }
+            },
+            isRTL: true,
+            // Add placeholder text
+            toString: function (date, format) {
+                return date ? moment(date).format(format) : 'تاريخ البدء';
+            },
+            formatDate: function (date) {
+                var day = date.getDate();
+                var month = date.getMonth() + 1;
+                var year = date.getFullYear();
+                return day + '/' + month + '/' + year;
+            },
+            // Update input field value with Arabic text
+            onSelect: function (date) {
+                debugger
+                var formattedDate = this._o.formatDate(date);
+                this._o.field.value = formattedDate;
+            }
+        });
+
+        // Helper function to replace English digits with Arabic digits
+        function ArabicDigits(num) {
+            return num.toString().replace(/\d/g, function (digit) {
+                var map = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+                return map[digit];
+            });
+        }
+    </script>
+    <script>
+        /**
+     * Define a function to navigate betweens form steps.
+     * It accepts one parameter. That is - step number.
+     */
+        const navigateToFormStep = (stepNumber) => {
+            /**
+             * Hide all form steps.
+             */
+            document.querySelectorAll(".form-step").forEach((formStepElement) => {
+                formStepElement.classList.add("d-none");
+            });
+            /**
+             * Mark all form steps as unfinished.
+             */
+            document.querySelectorAll(".form-stepper-list").forEach((formStepHeader) => {
+                formStepHeader.classList.add("form-stepper-unfinished");
+                formStepHeader.classList.remove("form-stepper-active", "form-stepper-completed");
+            });
+            /**
+             * Show the current form step (as passed to the function).
+             */
+            document.querySelector("#step-" + stepNumber).classList.remove("d-none");
+            /**
+             * Select the form step circle (progress bar).
+             */
+            const formStepCircle = document.querySelector('li[step="' + stepNumber + '"]');
+            /**
+             * Mark the current form step as active.
+             */
+            formStepCircle.classList.remove("form-stepper-unfinished", "form-stepper-completed");
+            formStepCircle.classList.add("form-stepper-active");
+            /**
+             * Loop through each form step circles.
+             * This loop will continue up to the current step number.
+             * Example: If the current step is 3,
+             * then the loop will perform operations for step 1 and 2.
+             */
+            for (let index = 0; index < stepNumber; index++) {
+                /**
+                 * Select the form step circle (progress bar).
+                 */
+                const formStepCircle = document.querySelector('li[step="' + index + '"]');
+                /**
+                 * Check if the element exist. If yes, then proceed.
+                 */
+                if (formStepCircle) {
+                    /**
+                     * Mark the form step as completed.
+                     */
+                    formStepCircle.classList.remove("form-stepper-unfinished", "form-stepper-active");
+                    formStepCircle.classList.add("form-stepper-completed");
+                }
+            }
+        };
+        /**
+         * Select all form navigation buttons, and loop through them.
+         */
+        document.querySelectorAll(".btn-navigate-form-step").forEach((formNavigationBtn) => {
+            /**
+             * Add a click event listener to the button.
+             */
+            formNavigationBtn.addEventListener("click", () => {
+                /**
+                 * Get the value of the step.
+                 */
+                const stepNumber = parseInt(formNavigationBtn.getAttribute("step_number"));
+                /**
+                 * Call the function to navigate to the target form step.
+                 */
+                navigateToFormStep(stepNumber);
+            });
+        });
+    </script>
+
+    <script>
+      
+        (function () {
+            const $ = document.querySelector.bind(document);
+            function handleFileSelect(evt) {
+                const files = evt.target.files; // FileList object
+
+                //files template
+                let template = `${Object.keys(files).map(file => `<div class="file file--${file}">
+     <div class="name"><span>${files[file].name}</span></div>
+     <div class="progress active"></div>
+     <div class="done">
+	<a href="" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 1000 1000">
+		<g><path id="path" d="M500,10C229.4,10,10,229.4,10,500c0,270.6,219.4,490,490,490c270.6,0,490-219.4,490-490C990,229.4,770.6,10,500,10z M500,967.7C241.7,967.7,32.3,758.3,32.3,500C32.3,241.7,241.7,32.3,500,32.3c258.3,0,467.7,209.4,467.7,467.7C967.7,758.3,758.3,967.7,500,967.7z M748.4,325L448,623.1L301.6,477.9c-4.4-4.3-11.4-4.3-15.8,0c-4.4,4.3-4.4,11.3,0,15.6l151.2,150c0.5,1.3,1.4,2.6,2.5,3.7c4.4,4.3,11.4,4.3,15.8,0l308.9-306.5c4.4-4.3,4.4-11.3,0-15.6C759.8,320.7,752.7,320.7,748.4,325z"</g>
+		</svg>
+						</a>
+     </div>
+    </div>`).join("")}`;
+                $("#drop").classList.add("hidden");
+                $("footer").classList.add("hasFiles");
+                $(".importar").classList.add("active");
+                setTimeout(() => {
+                    $(".list-files").innerHTML = template;
+                }, 1000);
+                Object.keys(files).forEach(file => {
+                    let load = 2000 + file * 2000; // fake load
+                    setTimeout(() => {
+                        $(`.file--${file}`).querySelector(".progress").classList.remove("active");
+                        $(`.file--${file}`).querySelector(".done").classList.add("anim");
+                    }, load);
+                });
+            }
+
+            // // trigger input
+            // $("#triggerFile").addEventListener("click", evt => {
+            //     evt.preventDefault();
+            //     $("input[type=file]").click();
+            // });
+            document.querySelector('#triggerFile').addEventListener('click', function(evt) {
+                evt.preventDefault();
+                $("input[type=file]").click();
+            });
+
+            // drop events
+            $("#drop").ondragleave = evt => {
+                $("#drop").classList.remove("active");
+                evt.preventDefault();
+            };
+            $("#drop").ondragover = $("#drop").ondragenter = evt => {
+                $("#drop").classList.add("active");
+                evt.preventDefault();
+            };
+            $("#drop").ondrop = evt => {
+                $("input[type=file]").files = evt.dataTransfer.files;
+                $("footer").classList.add("hasFiles");
+                $("#drop").classList.remove("active");
+                evt.preventDefault();
+            };
+
+            //upload more
+            $(".importar").addEventListener("click", () => {
+                $(".list-files").innerHTML = "";
+                $("footer").classList.remove("hasFiles");
+                $(".importar").classList.remove("active");
+                setTimeout(() => {
+                    $("#drop").classList.remove("hidden");
+                }, 500);
+            });
+
+            // input change
+            $("input[type=file]").addEventListener("change", handleFileSelect);
+        })()
+    </script>
+</body>
+
+</html>
